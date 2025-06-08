@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,157 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+        }
+
+        .navbar {
+            background-color: rgba(13, 17, 23, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #58a6ff;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .typewriter {
+            display: inline-block;
+            overflow: hidden;
+            border-right: .15em solid #58a6ff;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .1em;
+            animation: typing 3.5s steps(30, end), blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: #58a6ff;
+            }
+        }
+
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(rgba(13, 17, 23, 0.7), rgba(13, 17, 23, 1)), url('https://placehold.co/1920x1080/0d1117/1f2937?text=Code+Background');
+            background-size: cover;
+            background-position: center;
+        }
+
+        section {
+            padding: 8rem 1rem;
+            min-height: 100vh;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #58a6ff;
+        }
+
+        .project-slider {
+            position: relative;
+        }
+
+        .slider-container {
+            display: flex;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .slider-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .project-card {
+            flex: 0 0 auto;
+            width: 300px;
+            margin-right: 1.5rem;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: #161b22;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(88, 166, 255, 0.2), 0 10px 10px -5px rgba(88, 166, 255, 0.1);
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(88, 166, 255, 0.5);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .slider-btn.left {
+            left: -2rem;
+        }
+
+        .slider-btn.right {
+            right: -2rem;
+        }
+
+        .skill-item {
+            background-color: #161b22;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            transition: transform 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
+
 <body class="antialiased">
 
     <!-- Navbar -->
@@ -20,11 +170,16 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#home" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium active">Home</a>
-                        <a href="#about" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
-                        <a href="#skills" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Skills</a>
-                        <a href="#portfolio" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Portfolio</a>
-                        <a href="#contact" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                        <a href="#home"
+                            class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium active">Home</a>
+                        <a href="#about"
+                            class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#skills"
+                            class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#portfolio"
+                            class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Portfolio</a>
+                        <a href="#contact"
+                            class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
                     </div>
                 </div>
                 <div class="md:hidden">
@@ -36,11 +191,16 @@
         </div>
         <div id="mobile-menu" class="md:hidden hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" class="block nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium active">Home</a>
-                <a href="#about" class="block nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">About</a>
-                <a href="#skills" class="block nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">Skills</a>
-                <a href="#portfolio" class="block nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">Portfolio</a>
-                <a href="#contact" class="block nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">Contact</a>
+                <a href="#home"
+                    class="block nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium active">Home</a>
+                <a href="#about"
+                    class="block nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#skills"
+                    class="block nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">Skills</a>
+                <a href="#portfolio"
+                    class="block nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">Portfolio</a>
+                <a href="#contact"
+                    class="block nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium">Contact</a>
             </div>
         </div>
     </nav>
@@ -52,7 +212,9 @@
             <div class="text-xl md:text-3xl text-gray-300">
                 <span class="typewriter">An enthusiastic developer.</span>
             </div>
-            <a href="#portfolio" class="mt-8 inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full transition duration-300">View My Work</a>
+            <a href="#portfolio"
+                class="mt-8 inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full transition duration-300">View
+                My Work</a>
         </div>
     </section>
 
@@ -61,9 +223,14 @@
         <div class="container mx-auto px-4">
             <h2 class="section-title">About Me</h2>
             <div class="max-w-4xl mx-auto text-center">
-                <p class="text-lg mb-4">I'm a passionate developer who enjoys building user-friendly websites and applications. Always eager to learn and grow, I combine creativity with technical skills to bring ideas to life.</p>
-                <p class="text-lg mb-4">When I'm not coding, I enjoy photography, traveling, and constantly learning new technologies to keep my skills fresh.</p>
-                <a href="https://hemanthnagaraj04.github.io/Resources/Hemanth-Resume.pdf" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Resume</a>
+                <p class="text-lg mb-4">I'm a passionate developer who enjoys building user-friendly websites and
+                    applications. Always eager to learn and grow, I combine creativity with technical skills to bring
+                    ideas to life.</p>
+                <p class="text-lg mb-4">When I'm not coding, I enjoy photography, traveling, and constantly learning new
+                    technologies to keep my skills fresh.</p>
+                <a href="https://hemanthnagaraj04.github.io/Resources/Hemanth-Resume.pdf" target="_blank"
+                    rel="noopener noreferrer"
+                    class="mt-4 inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Resume</a>
             </div>
         </div>
     </section>
@@ -106,30 +273,41 @@
                 <div class="relative">
                     <div id="slider1" class="slider-container">
                         <!-- Project Cards -->
-                        <a href="https://hemanthnagaraj04.github.io/MovieBrowser/" target="_blank" rel="noopener noreferrer" class="project-card">
-                            <img src="Resources/MovieBrowser.png" alt="Movie Browser Project" class="w-full h-40 object-cover">
+                        <a href="https://hemanthnagaraj04.github.io/MovieBrowser/" target="_blank"
+                            rel="noopener noreferrer" class="project-card">
+                            <img src="Resources/MovieBrowser.png" alt="Movie Browser Project"
+                                class="w-full h-40 object-cover">
                             <div class="p-4">
                                 <h4 class="font-bold text-lg">Movie Browser</h4>
-                                <p class="text-sm text-gray-400 mt-1">Search for your favorite movies using this app built with React and a live API.</p>
+                                <p class="text-sm text-gray-400 mt-1">Search for your favorite movies using this app
+                                    built with React and a live API.</p>
                             </div>
                         </a>
-                         <a href="https://hemanthnagaraj04.github.io/CalorieTracker/" target="_blank" rel="noopener noreferrer" class="project-card">
-                            <img src="Resources/calorietracker.png" alt="Calorie Tracker Project" class="w-full h-40 object-cover">
+                        <a href="https://hemanthnagaraj04.github.io/CalorieTracker/" target="_blank"
+                            rel="noopener noreferrer" class="project-card">
+                            <img src="Resources/calorietracker.png" alt="Calorie Tracker Project"
+                                class="w-full h-40 object-cover">
                             <div class="p-4">
                                 <h4 class="font-bold text-lg">Calorie Tracker</h4>
-                                <p class="text-sm text-gray-400 mt-1">Track calories, protein, fats, and carbs in the food you consume.</p>
+                                <p class="text-sm text-gray-400 mt-1">Track calories, protein, fats, and carbs in the
+                                    food you consume.</p>
                             </div>
                         </a>
-                         <a href="https://hemanthnagaraj04.github.io/UniversityChatBot/" target="_blank" rel="noopener noreferrer" class="project-card">
-                            <img src="Resources/chatbot.png" alt="University Chatbot Project" class="w-full h-40 object-cover">
+                        <a href="https://hemanthnagaraj04.github.io/UniversityChatBot/" target="_blank"
+                            rel="noopener noreferrer" class="project-card">
+                            <img src="Resources/chatbot.png" alt="University Chatbot Project"
+                                class="w-full h-40 object-cover">
                             <div class="p-4">
                                 <h4 class="font-bold text-lg">University Chatbot</h4>
-                                <p class="text-sm text-gray-400 mt-1">A chatbot to help students with common university-related questions.</p>
+                                <p class="text-sm text-gray-400 mt-1">A chatbot to help students with common
+                                    university-related questions.</p>
                             </div>
                         </a>
                     </div>
-                    <button class="slider-btn left" onclick="slide('slider1', 'left')"><i class="fas fa-chevron-left"></i></button>
-                    <button class="slider-btn right" onclick="slide('slider1', 'right')"><i class="fas fa-chevron-right"></i></button>
+                    <button class="slider-btn left" onclick="slide('slider1', 'left')"><i
+                            class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn right" onclick="slide('slider1', 'right')"><i
+                            class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>
@@ -137,28 +315,32 @@
 
     <!-- Contact Section -->
     <section id="contact">
-    <div class="container mx-auto px-4">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="max-w-lg mx-auto text-center">
-            <p class="text-lg mb-8">I'm currently available for new opportunities. If you have a project in mind or just want to say hello, feel free to reach out directly through these channels:</p>
+        <div class="container mx-auto px-4">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="max-w-lg mx-auto text-center">
+                <p class="text-lg mb-8">I'm currently available for new opportunities. If you have a project in mind or
+                    just want to say hello, feel free to reach out directly through these channels:</p>
 
-            <p class="text-xl font-semibold mb-6 text-white">
-                Email: <a href="mailto:hemanthnagaraj2004@gmail.com" class="text-blue-400 hover:underline">hemanthnagaraj2004@gmail.com</a>
-            </p>
+                <p class="text-xl font-semibold mb-6 text-white">
+                    Email: <a href="mailto:hemanthnagaraj2004@gmail.com"
+                        class="text-blue-400 hover:underline">hemanthnagaraj2004@gmail.com</a>
+                </p>
 
-            <div class="flex justify-center space-x-10">
-                <a href="https://www.linkedin.com/in/hemanth-nagaraj04/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white flex flex-col items-center">
-                    <i class="fab fa-linkedin text-5xl mb-2"></i>
-                    <span class="text-base font-medium">LinkedIn</span>
-                </a>
-                <a href="https://github.com/HemanthNagaraj04" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white flex flex-col items-center">
-                    <i class="fab fa-github text-5xl mb-2"></i>
-                    <span class="text-base font-medium">GitHub</span>
-                </a>
+                <div class="flex justify-center space-x-10">
+                    <a href="https://www.linkedin.com/in/hemanth-nagaraj04/" target="_blank" rel="noopener noreferrer"
+                        class="text-gray-400 hover:text-white flex flex-col items-center">
+                        <i class="fab fa-linkedin text-5xl mb-2"></i>
+                        <span class="text-base font-medium">LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/HemanthNagaraj04" target="_blank" rel="noopener noreferrer"
+                        class="text-gray-400 hover:text-white flex flex-col items-center">
+                        <i class="fab fa-github text-5xl mb-2"></i>
+                        <span class="text-base font-medium">GitHub</span>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <footer class="bg-gray-900 text-center py-4">
         <p>&copy; 2024 Hemanth Nagaraj. All rights reserved.</p>
@@ -180,7 +362,7 @@
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if(pageYOffset >= sectionTop - 64) {
+                if (pageYOffset >= sectionTop - 64) {
                     current = section.getAttribute('id');
                 }
             });
@@ -189,8 +371,8 @@
                 link.classList.remove('active');
                 const mobileLink = document.querySelector(`#mobile-menu a[href="#${current}"]`);
                 const desktopLink = document.querySelector(`.hidden.md\\:block a[href="#${current}"]`);
-                if(mobileLink) mobileLink.classList.add('active');
-                if(desktopLink) desktopLink.classList.add('active');
+                if (mobileLink) mobileLink.classList.add('active');
+                if (desktopLink) desktopLink.classList.add('active');
             });
         });
 
@@ -200,7 +382,7 @@
                 mobileMenu.classList.add('hidden');
             });
         });
-        
+
         // Slider functionality
         function slide(sliderId, direction) {
             const slider = document.getElementById(sliderId);
@@ -213,4 +395,5 @@
         }
     </script>
 </body>
+
 </html>
