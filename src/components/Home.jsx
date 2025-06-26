@@ -19,7 +19,7 @@ const Home = () => {
                     Developer
                 </h2>
                 <a
-                    href="#portfolio"
+                    href="#Portfolio"
                     className="mt-8 inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full transition duration-300">
                     View My Work
                 </a>

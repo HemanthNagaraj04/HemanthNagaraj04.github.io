@@ -13,7 +13,7 @@ const ProjectDisplay = ({ project, onClose }) => {
       <div className="bg-[#0d1117] rounded-xl shadow-lg max-w-2xl w-full p-6 relative">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-white text-xl font-bold hover:text-red-500">
+          className="absolute top-4 right-4 text-white text-xl font-bold hover:text-red-500 cursor-pointer">
           &times;
         </button>
         <h2 className="text-3xl font-semibold text-blue-400 mb-4">{project.name}</h2>
